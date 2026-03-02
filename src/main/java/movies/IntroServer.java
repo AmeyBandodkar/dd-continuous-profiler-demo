@@ -115,9 +115,9 @@ public class IntroServer {
 		return replyJSON(res, new StatsResult(numberMatched, aggregatedStats));
 	}
 
-	private static List<Credit> creditsForMovie(Movie movie) {
-		return CREDITS.get().stream().filter(c -> c.id.equals(movie.id)).toList();
-	}
+private static List<Credit> creditsForMovie(Movie movie) {
+	return CREDITS_BY_MOVIE_ID.get().get(movie.id);
+}
 
 	private static Map<CrewRole, Long> crewCountForMovie(List<Credit> credits) {
 		var credit = credits != null ? credits.get(0) : null;
